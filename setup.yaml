@@ -1,0 +1,8 @@
+---
+- name: Add the given public SSH key to the server
+  hosts: all
+  tasks:
+    - name: Deploy SSH keys
+      ansible.builtin.import_role:
+        name: ssh
+      tags: ssh
