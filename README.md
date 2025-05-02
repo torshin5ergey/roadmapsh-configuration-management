@@ -15,7 +15,7 @@ This is my solution to the [Configuration Management project](https://roadmap.sh
 - [ ] Write Ansible role `nginx` (installs and configures `nginx`)
 - [ ] Write Ansible role `app` (uploads the given tarball of a static HTML website to the server and unzips it)
 - [ ] Write Ansible role `ssh` (adds the given public key to the server)
-- [ ] Setup the inventory.ini to include the server you are going to configure
+- [x] Setup the inventory.ini to include the server you are going to configure
 - [ ] You should also assign proper tags to the roles so that you can run only specific roles
 - [ ] **Advanced**. Modify the app role to pull the repository from GitHub and deploy it
 
