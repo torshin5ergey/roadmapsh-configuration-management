@@ -1,0 +1,12 @@
+---
+- name: Upgrade apt packages
+  ansible.builtin.apt:
+    upgrade: true
+    update_cache: true
+
+- name: Install useful apt packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop: "{{ base_apt_packages }}"

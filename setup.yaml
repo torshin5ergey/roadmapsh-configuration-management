@@ -1,8 +1,14 @@
 ---
-- name: Add the given public SSH key to the server
+- name: Setup webserver
   hosts: all
+  become: true
   tasks:
     - name: Deploy SSH keys
       ansible.builtin.import_role:
         name: ssh
       tags: ssh
+
+    - name: Basic server setup
+      ansible.builtin.import_role:
+        name: base
+      tags: base

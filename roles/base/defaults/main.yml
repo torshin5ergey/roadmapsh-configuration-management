@@ -1,0 +1,7 @@
+---
+base_apt_packages:
+  - vim
+  - git
+  - net-tools
+  - curl
+  - fail2ban
