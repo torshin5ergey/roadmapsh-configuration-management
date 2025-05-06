@@ -12,7 +12,7 @@ This is my solution to the [Configuration Management project](https://roadmap.sh
 
 - [ ] Write Ansbile playbook `setup.yaml`. When you run the playbook, it should run the roles above in sequence.
 - [x] Write Ansible Role `base` (basic server setup (installs utilities, updates the server, installs `fail2ban`, etc.))
-- [ ] Write Ansible role `nginx` (installs and configures `nginx`)
+- [x] Write Ansible role `nginx` (installs and configures `nginx`)
 - [ ] Write Ansible role `app` (uploads the given tarball of a static HTML website to the server and unzips it)
 - [x] Write Ansible role `ssh` (adds the given public key to the server)
 - [x] Setup the inventory.ini to include the server you are going to configure
@@ -21,7 +21,7 @@ This is my solution to the [Configuration Management project](https://roadmap.sh
 
 ## Prerequisites
 
-- A remote server (Ubuntu Server 22.04) with configured SSH access
+- A remote server (Ubuntu Server 22.04)
 
 ## Configuration Management
 
@@ -45,6 +45,14 @@ ansible-playbook setup.yaml --tags ssh --ask-become-pass
 # --tags run only base role tasks
 # --ask-become-pass sudo password, can be specified in ansible.cfg become_password=password
 ansible-playbook setup.yaml --tags base --ask-become-pass
+```
+**- `nginx` role**
+  Usage:
+    Run playbook with tag
+```bash
+# --tags run only base role tasks
+# --ask-become-pass sudo password, can be specified in ansible.cfg become_password=password
+ansible-playbook setup.yaml --tags nginx --ask-become-pass
 ```
 
 ## Author

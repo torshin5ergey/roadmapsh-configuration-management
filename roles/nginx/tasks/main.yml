@@ -1,0 +1,24 @@
+---
+- name: Install nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+    update_cache: true
+
+- name: Start and enable nginx service
+  ansible.builtin.systemd:
+    name: nginx
+    state: started
+    enabled: true
+
+- name: Check nginx connection
+  ansible.builtin.uri:
+    url: "http://{{ inventory_hostname }}"
+    method: GET
+    return_content: yes
+    status_code: 200
+  register: response
+
+- name: Print the response status code
+  ansible.builtin.debug:
+    var: response.status

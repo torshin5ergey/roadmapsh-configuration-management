@@ -12,3 +12,8 @@
       ansible.builtin.import_role:
         name: base
       tags: base
+
+    - name: Install and configure nginx
+      ansible.builtin.import_role:
+        name: nginx
+      tags: nginx
