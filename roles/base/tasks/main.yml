@@ -11,6 +11,12 @@
     update_cache: true
   loop: "{{ base_apt_packages }}"
 
+- name: Allow ufw ports
+  ansible.builtin.ufw:
+    rule: allow
+    port: "22"
+    proto: tcp
+
 - name: Create custom fail2ban configuration file
   ansible.builtin.copy:
     remote_src: true
@@ -20,8 +26,11 @@
     group: root
     mode: "0644"
 
-- name: Start and enable fail2ban
+- name: Start and enable services
   ansible.builtin.systemd:
-    name: fail2ban
+    name: "{{ item }}"
     state: started
     enabled: true
+  loop:
+    - "fail2ban"
+    - "ufw"

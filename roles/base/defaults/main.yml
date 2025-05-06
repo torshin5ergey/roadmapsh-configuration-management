@@ -5,3 +5,4 @@ base_apt_packages:
   - net-tools
   - curl
   - fail2ban
+  - ufw

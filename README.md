@@ -33,7 +33,18 @@ This is my solution to the [Configuration Management project](https://roadmap.sh
     Redefine variables and run playbook with tag
 ```bash
 # --tags run only ssh role tasks
-ansible-playbook setup.yaml --tags ssh
+# --ask-become-pass sudo password, can be specified in ansible.cfg become_password=password
+ansible-playbook setup.yaml --tags ssh --ask-become-pass
+```
+**- `base` role**
+  Variables:
+    - `apt_packages`: apt packages to install
+  Usage:
+    Run playbook with tag
+```bash
+# --tags run only base role tasks
+# --ask-become-pass sudo password, can be specified in ansible.cfg become_password=password
+ansible-playbook setup.yaml --tags base --ask-become-pass
 ```
 
 ## Author
