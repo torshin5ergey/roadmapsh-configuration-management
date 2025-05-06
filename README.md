@@ -26,6 +26,7 @@ This is my solution to the [Configuration Management project](https://roadmap.sh
 ## Configuration Management
 
 **- `ssh` role**
+  Add SSH key to remote host
   Variables:
     - `ssh_user`: username to deploy ssh key
     - `ssh_pubkey_path` local ssh public key path
@@ -37,6 +38,7 @@ This is my solution to the [Configuration Management project](https://roadmap.sh
 ansible-playbook setup.yaml --tags ssh --ask-become-pass
 ```
 **- `base` role**
+  Upgrade and install apt packages
   Variables:
     - `apt_packages`: apt packages to install
   Usage:
@@ -47,6 +49,7 @@ ansible-playbook setup.yaml --tags ssh --ask-become-pass
 ansible-playbook setup.yaml --tags base --ask-become-pass
 ```
 **- `nginx` role**
+  Install and start NGINX
   Usage:
     Run playbook with tag
 ```bash
