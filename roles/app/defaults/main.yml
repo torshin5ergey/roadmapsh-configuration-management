@@ -1,0 +1,4 @@
+---
+app_repo_url: https://github.com/torshin5ergey/roadmapsh-static-site-server.git
+app_temp_dir: /tmp/website_deploy
+app_website_dir: /var/www/html/

@@ -1,0 +1,30 @@
+---
+- name: Clone website repository
+  ansible.builtin.git:
+    repo: "{{ app_repo_url }}"
+    dest: "{{ app_temp_dir }}"
+    version: main
+    update: yes
+  delegate_to: localhost
+  become: false
+
+- name: Archive website files
+  ansible.builtin.archive:
+    path: "{{ app_temp_dir }}/website"
+    dest: "{{ app_temp_dir }}/website.tar.gz"
+    format: gz
+  delegate_to: localhost
+
+- name: Upload and unarchive files
+  ansible.builtin.unarchive:
+    src: "{{ app_temp_dir }}/website.tar.gz"
+    dest: "{{ app_website_dir }}"
+    copy: yes
+    keep_newer: yes
+    extra_opts: [--strip-components=1]
+
+- name: Cleanup files
+  ansible.builtin.file:
+    path: "{{ app_temp_dir }}"
+    state: absent
+  delegate_to: localhost

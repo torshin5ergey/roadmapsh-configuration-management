@@ -17,3 +17,8 @@
       ansible.builtin.import_role:
         name: nginx
       tags: nginx
+
+    - name: Deploy website files
+      ansible.builtin.import_role:
+        name: app
+      tags: app
