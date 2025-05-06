@@ -10,3 +10,18 @@
     state: present
     update_cache: true
   loop: "{{ base_apt_packages }}"
+
+- name: Create custom fail2ban configuration file
+  ansible.builtin.copy:
+    remote_src: true
+    src: /etc/fail2ban/jail.conf
+    dest: /etc/fail2ban/jail.d/jail.local
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Start and enable fail2ban
+  ansible.builtin.systemd:
+    name: fail2ban
+    state: started
+    enabled: true
