@@ -11,7 +11,7 @@ This is my solution to the [Configuration Management project](https://roadmap.sh
 ## Project Requirements
 
 - [ ] Write Ansbile playbook `setup.yaml`. When you run the playbook, it should run the roles above in sequence.
-- [ ] Write Ansible Role `base` (basic server setup (installs utilities, updates the server, installs `fail2ban`, etc.))
+- [x] Write Ansible Role `base` (basic server setup (installs utilities, updates the server, installs `fail2ban`, etc.))
 - [ ] Write Ansible role `nginx` (installs and configures `nginx`)
 - [ ] Write Ansible role `app` (uploads the given tarball of a static HTML website to the server and unzips it)
 - [x] Write Ansible role `ssh` (adds the given public key to the server)
